@@ -1,3 +1,5 @@
+package Heranca
+
 //Open para deixar outras classes herdarem
 open class Maquina(val marca: String) {
     fun minhaMarca() {
