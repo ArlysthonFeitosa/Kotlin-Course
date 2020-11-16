@@ -1,14 +1,14 @@
 package ConstEVariaveisEstaticas
 
 //private constructor - opcional para não poder instanciar a Classe
-class Constantes private constructor(){
+class Constantes private constructor() {
 
     //Para a classe que não precisa instanciar
     //Posso dar ou não um nome
-    companion object BANCO{
+    companion object BANCO {
         val TABLE = "Pessoa"
 
-        fun printHW(){
+        fun printHW() {
             println("Hello World")
         }
     }
@@ -19,7 +19,7 @@ class Constantes private constructor(){
         val TABLE_NAME = "Vendas"
 
         //Pode criar outro object
-        object COLUNAS{
+        object COLUNAS {
             val ID = 10
         }
     }
