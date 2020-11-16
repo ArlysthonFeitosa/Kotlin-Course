@@ -31,7 +31,6 @@ class Gato(nome: String) : Mamifero(nome) {
 }
 
 fun main() {
-
     val cachorro: Cachorro = Cachorro("Carlos", 20.0f)
     val gato:Gato = Gato("João")
 
@@ -40,6 +39,5 @@ fun main() {
 
     gato.falar()
     gato.dormir()
-
     println(cachorro.peso)
 }
