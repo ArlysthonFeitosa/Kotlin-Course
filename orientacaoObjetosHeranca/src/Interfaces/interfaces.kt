@@ -41,8 +41,7 @@ class ImplementaInterface : interface1, interface2 {
 }
 
 fun main() {
-
-    var pessoa:ImplementaInterface = ImplementaInterface()
+    var pessoa: ImplementaInterface = ImplementaInterface()
 
     pessoa.ola() //print na interface 1, já que no override eu dei super<interface1>.ola
 
