@@ -9,7 +9,7 @@ open class Maquina(val marca: String) {
 
 //Herança de Máquina
 class Computador(marca: String, val nucleos: Int) : Maquina(marca) {
-    fun ligar(){
+    fun ligar() {
         println("oi")
     }
 
