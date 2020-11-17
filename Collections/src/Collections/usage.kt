@@ -1,7 +1,14 @@
 package Collections
 
+import com.sun.org.apache.xpath.internal.operations.Bool
+import com.sun.xml.internal.org.jvnet.fastinfoset.sax.FastInfosetReader
+
 data class Ingredientes(val nome: String, val quantidade: Int)
 data class Receita(val nome: String, val calorias: Int, val ingredientes: List<Ingredientes> = listOf())
+
+fun hasIngredients(lista: List<Ingredientes>, nome: String): Boolean {
+    return lista.filter { it.nome == nome }.any()
+}
 
 fun main() {
 
@@ -54,5 +61,24 @@ fun main() {
     for (x in primeiras.withIndex()) {
         println("${x.index + 1} -> ${x.value.nome}")
     }
+
+    //Sei como faze panqueca? //E sushi?
+    val knowPankake = data.filter { it.nome == "Panqueca" }.any()
+    println("Sei fazer panqueca? ${if (knowPankake) "sim" else "não"}")
+
+    val knowSushi = data.filter { it.nome == "Sushi" }.any()
+    println("Sei fazer sushi? ${if (knowSushi) "sim" else "não"}")
+
+    //Quais comias com mais de 500 calorias?
+    val listFoods = data.filter { it.calorias > 500 }.forEach { println(it.nome) }
+
+    //Par [chave, valor] dos alimentos com mais de 500 calorias
+    data.filter { it.calorias > 500 }
+            .map { Pair(it.nome, it.calorias) }
+            .forEach { println("${it.first}: ${it.second}") }
+
+    //Quais receitas possui farinha como ingrediente
+    val pairFoods = data.filter { hasIngredients(it.ingredientes, "Farinha") }
+            .forEach{ println(it.nome)}
 
 }
