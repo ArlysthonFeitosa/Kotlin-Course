@@ -40,3 +40,8 @@ fun countConsonants(phrase: String): Int {
     return count
     //return phrase.length - countVowels(phrase)
 }
+
+fun countVowelsFilter(phrase: String): Int{
+    val vowels = "aeiou"
+    return phrase.filter { it.toLowerCase() in vowels}.length
+}

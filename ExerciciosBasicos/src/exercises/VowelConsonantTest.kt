@@ -21,4 +21,9 @@ class VowelConsonantTest {
         Assert.assertEquals(2, countVowels(phrase))
         Assert.assertEquals(7, countConsonants(phrase))
     }
+
+    @Test
+    fun countVowelsFilter(){
+        Assert.assertEquals(2, countVowelsFilter("Arlysthon"))
+    }
 }
