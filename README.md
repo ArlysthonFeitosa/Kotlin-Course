@@ -38,3 +38,14 @@
       * MapOf
       * MutableMapOf
       * HashMapOf
+      
+### ![Aplicativo Gasto de Viagens](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/GastoViagem)
+   * Aplicativo que calcula o gasto em uma viagem
+      * LinearLayout
+      * EditText 
+      * TextView
+      * Buttons
+      * Funções de click
+
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/AppGastosDaViagem.png)
+      
