@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val price = editPrice.text.toString().toFloat()
             val autonomy = editAutonomy.text.toString().toFloat()
 
-            val totalValue = (distance + price) / autonomy
+            val totalValue = (distance / autonomy) * price
             textTotalValue.text = "R$ ${"%.2f".format(totalValue)}"
         } else {
             Toast.makeText(applicationContext, getString(R.string.digite_todos_os_valores), Toast.LENGTH_LONG).show()
