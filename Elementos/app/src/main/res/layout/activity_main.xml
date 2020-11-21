@@ -14,4 +14,13 @@
         android:layout_gravity="center"
         app:tint="#0E33FF"/>
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fazer as compras"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:paddingStart="5dp"
+        android:layout_gravity="center"/>
+
 </LinearLayout>
