@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imgView"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/ic_perfil"
@@ -15,12 +16,14 @@
         app:tint="#0E33FF"/>
 
     <CheckBox
+        android:id="@+id/check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fazer as compras"
-        android:textColor="#fff"
+        android:textColor="#C1C1C1"
         android:textSize="20sp"
         android:paddingStart="5dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:onClick="onClick"/>
 
 </LinearLayout>
