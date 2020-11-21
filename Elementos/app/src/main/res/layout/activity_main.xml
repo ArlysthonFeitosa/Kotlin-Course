@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-    
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_perfil"
+        android:layout_gravity="center"
+        app:tint="#0E33FF"/>
 
 </LinearLayout>
