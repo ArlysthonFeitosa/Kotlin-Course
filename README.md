@@ -48,4 +48,9 @@
       * Funções de click
 
 ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/AppGastosDaViagem.png)
-      
+
+### ![Elementos - 2](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Elementos)
+   * Alguns elementos e a interação entre eles
+      * Image View
+      * Check Box
+      * Interação
