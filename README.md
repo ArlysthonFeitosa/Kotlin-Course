@@ -54,3 +54,7 @@
       * Image View
       * Check Box
       * Interação
+
+### ![Relative Layout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/RelativeLayout)
+   * Exercício de Relative Layout
+
