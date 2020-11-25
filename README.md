@@ -58,3 +58,11 @@
 ### ![Relative Layout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/RelativeLayout)
    * Exercício de Relative Layout
 
+### ![Mais Sobre Funções](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/MaisFuncoes)
+   * Conceitos avançados de funções
+      * Funções Anônimas
+      * Funções Locais
+      * Funções Infix
+      * High Order Functions
+      * Lambdas
+      * Operador Overloading
