@@ -11,7 +11,7 @@ fun sum(x: Int, y: Int) = x + y
 fun multiply(x: Int, y: Int) = x * y
 
 fun List<Int>.paraCada(op: (Int) -> Unit) {
-    for(i in this) {
+    for (i in this) {
         op(i)
     }
 }

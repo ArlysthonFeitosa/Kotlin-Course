@@ -6,13 +6,13 @@ data class Fraction(val numerator: Int, val denominator: Int) {
             return Fraction(numerator + fraction.numerator, denominator)
         } else {
             val commun = denominator * fraction.denominator
-            return Fraction(((commun/denominator)*numerator) +
-                    ((commun/fraction.denominator)+fraction.denominator),commun)
+            return Fraction(((commun / denominator) * numerator) +
+                    ((commun / fraction.denominator) + fraction.denominator), commun)
         }
     }
 
-    operator fun inc():Fraction{
-       return this
+    operator fun inc(): Fraction {
+        return this
     }
 
 }
