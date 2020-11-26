@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent"
+        android:backgroundTint="@color/colorAccent"
         android:textColor="@color/white"
         android:padding="8dp"
         android:layout_marginBottom="16dp"
