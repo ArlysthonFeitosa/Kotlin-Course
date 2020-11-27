@@ -50,6 +50,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:text="Hello World!"
+        android:textColor="@color/black"
         android:textSize="18sp" />
 
     <TextView
@@ -60,6 +61,7 @@
         android:layout_centerVertical="true"
         android:layout_marginTop="32dp"
         android:text="Frase"
+        android:textColor="@color/black"
         android:textSize="22sp" />
 
     <View
