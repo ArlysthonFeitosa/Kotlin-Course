@@ -22,7 +22,6 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         buttonSave.setOnClickListener(this)
-
         securityPreferences = SecurityPreferences(this)
     }
 
