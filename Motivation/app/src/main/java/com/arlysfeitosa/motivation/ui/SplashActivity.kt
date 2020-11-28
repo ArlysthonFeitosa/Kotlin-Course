@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.arlysfeitosa.motivation.Infra.MotivationConstants
 import com.arlysfeitosa.motivation.Infra.SecurityPreferences
 import com.arlysfeitosa.motivation.R
 import kotlinx.android.synthetic.main.activity_splash.*
@@ -23,6 +24,15 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
 
         buttonSave.setOnClickListener(this)
         securityPreferences = SecurityPreferences(this)
+
+        verifyName()
+    }
+
+    private fun verifyName(){
+        val name = securityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
+        if(name != "") {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     override fun onClick(v: View?) {
