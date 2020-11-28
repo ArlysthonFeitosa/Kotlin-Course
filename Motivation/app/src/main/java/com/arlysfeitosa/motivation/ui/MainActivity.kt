@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         securityPreferences = SecurityPreferences(this)
-        textName.text = securityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
+        val nome = securityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
+        textName.text = "Olá, ${nome}!"
 
         imageAll.setColorFilter(resources.getColor(R.color.colorAccent))
         handleNewPhrase()

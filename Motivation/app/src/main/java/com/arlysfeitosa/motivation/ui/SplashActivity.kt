@@ -32,6 +32,7 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         val name = securityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
         if(name != "") {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
@@ -47,6 +48,7 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         if (name != "") {
             securityPreferences.storeString("name", name)
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         } else {
             Toast.makeText(applicationContext, "Informe seu nome", Toast.LENGTH_SHORT).show()
         }
