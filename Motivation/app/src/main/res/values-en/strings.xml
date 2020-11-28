@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Motivation</string>
+    <string name="vamos_comecar">Let\'s get started?</string>
+    <string name="qual_o_seu_nome">What is your name?</string>
+    <string name="salvar">Save</string>
+</resources>
