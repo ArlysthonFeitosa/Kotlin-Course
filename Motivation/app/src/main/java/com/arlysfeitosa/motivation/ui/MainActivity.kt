@@ -6,12 +6,14 @@ import android.view.View
 import com.arlysfeitosa.motivation.Infra.MotivationConstants
 import com.arlysfeitosa.motivation.Infra.SecurityPreferences
 import com.arlysfeitosa.motivation.R
+import com.arlysfeitosa.motivation.Repository.Mock
 import kotlinx.android.synthetic.main.activity_main.*
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var securityPreferences: SecurityPreferences
+    private var mPhraseFilter: Int = MotivationConstants.PHRASEFILTER.ALL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         securityPreferences = SecurityPreferences(this)
         textName.text = securityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
+
+        imageAll.setColorFilter(resources.getColor(R.color.colorAccent))
+        handleNewPhrase()
 
         buttonNewPhrase.setOnClickListener(this)
         imageMorning.setOnClickListener(this)
@@ -50,19 +55,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (id) {
             R.id.imageAll -> {
                 imageAll.setColorFilter(resources.getColor(R.color.colorAccent))
+                mPhraseFilter = MotivationConstants.PHRASEFILTER.ALL
             }
 
             R.id.imageHappy -> {
                 imageHappy.setColorFilter(resources.getColor(R.color.colorAccent))
+                mPhraseFilter = MotivationConstants.PHRASEFILTER.HAPPY
             }
 
             R.id.imageMorning -> {
                 imageMorning.setColorFilter(resources.getColor(R.color.colorAccent))
+                mPhraseFilter = MotivationConstants.PHRASEFILTER.MORNING
             }
         }
     }
 
     private fun handleNewPhrase() {
-
+        textPhrase.text = Mock().getPhrase(mPhraseFilter)
     }
 }

@@ -60,7 +60,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="32dp"
+        android:padding="16dp"
         android:text="Frase"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="22sp" />
 
