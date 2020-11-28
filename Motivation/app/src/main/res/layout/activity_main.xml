@@ -81,9 +81,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/ripple_button"
         android:padding="16dp"
         android:text="Nova Frase"
         android:textColor="@color/white" />
-
 </RelativeLayout>
