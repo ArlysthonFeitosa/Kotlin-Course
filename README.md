@@ -66,3 +66,13 @@
       * High Order Functions
       * Lambdas
       * Operador Overloading
+
+### ![Aplicativo Motivation](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Motivation)
+   * Aplicativo de frases motivadoras
+      * Splash Activity
+      * Internacionalização
+      * Preferências
+      * Constantes
+      * Ripple
+      * Mock
+      
