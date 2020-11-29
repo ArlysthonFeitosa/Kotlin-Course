@@ -55,8 +55,12 @@
       * Check Box
       * Interação
 
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Elementos.jpeg)
+
 ### ![Relative Layout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/RelativeLayout)
    * Exercício de Relative Layout
+
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Relative.jpeg)
 
 ### ![Mais Sobre Funções](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/MaisFuncoes)
    * Conceitos avançados de funções
@@ -75,4 +79,7 @@
       * Constantes
       * Ripple
       * Mock
-      
+            
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/MotivationMain.jpeg)
+
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/MotivationSplash.jpeg)
