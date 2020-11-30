@@ -13,14 +13,18 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Button A"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonB"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/buttonB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Button B"
         app:layout_constraintLeft_toRightOf="@+id/buttonA"
         app:layout_constraintTop_toTopOf="@id/buttonA" />
