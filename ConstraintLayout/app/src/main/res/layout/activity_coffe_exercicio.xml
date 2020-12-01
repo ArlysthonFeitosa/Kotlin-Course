@@ -6,4 +6,171 @@
     android:layout_height="match_parent"
     tools:context=".CoffeExercicio">
 
+    <View
+        android:id="@+id/cabecalho"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:background="#855e53"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cappuccino"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@id/cabecalho"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/srcTime"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_time"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/srcLike"
+        app:layout_constraintTop_toBottomOf="@id/cabecalho"
+        app:tint="#855e53" />
+
+    <ImageView
+        android:id="@+id/srcLike"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_like"
+        app:layout_constraintLeft_toRightOf="@+id/srcTime"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/srcTime"
+        app:tint="#855e53" />
+
+    <TextView
+        android:id="@+id/minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15 minutos"
+        app:layout_constraintEnd_toEndOf="@+id/srcTime"
+        app:layout_constraintStart_toStartOf="@+id/srcTime"
+        app:layout_constraintTop_toBottomOf="@+id/srcTime" />
+
+    <TextView
+        android:id="@+id/likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15203"
+        app:layout_constraintEnd_toEndOf="@+id/srcLike"
+        app:layout_constraintStart_toStartOf="@+id/srcLike"
+        app:layout_constraintTop_toBottomOf="@+id/srcLike" />
+
+    <View
+        android:id="@+id/linhaDivisao"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="#855e53"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cabecalho"
+        app:layout_constraintVertical_bias="0.22" />
+
+    <TextView
+        android:id="@+id/descricao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/descricao_cappucino"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linhaDivisao" />
+
+    <TextView
+        android:id="@+id/txtIngredientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Ingredientes"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricao" />
+
+    <ImageView
+        android:id="@+id/frstTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_topic"
+        app:layout_constraintBottom_toTopOf="@+id/scdTopic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtIngredientes" />
+
+    <ImageView
+        android:id="@+id/scdTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_topic"
+        app:layout_constraintBottom_toTopOf="@id/trdTopic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frstTopic" />
+
+    <ImageView
+        android:id="@+id/trdTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_topic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scdTopic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 dose de espresso"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/frstTopic"
+        app:layout_constraintLeft_toRightOf="@+id/frstTopic"
+        app:layout_constraintTop_toTopOf="@+id/frstTopic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100ml de leite"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scdTopic"
+        app:layout_constraintLeft_toRightOf="@+id/scdTopic"
+        app:layout_constraintTop_toTopOf="@+id/scdTopic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 colher de chocolate em pó"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/trdTopic"
+        app:layout_constraintLeft_toRightOf="@+id/trdTopic"
+        app:layout_constraintTop_toTopOf="@+id/trdTopic" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
