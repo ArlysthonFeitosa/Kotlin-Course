@@ -47,6 +47,7 @@
       * Buttons
       * Funções de click
 
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/AppGastosDaViagem.png)
 
 ### ![Elementos - 2](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Elementos)
    * Alguns elementos e a interação entre eles
@@ -56,7 +57,7 @@
 
 
 ### ![Relative Layout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/RelativeLayout)
-   * Exercício de Relative Layout
+   * Exercício de tela de login com Relative Layout
 
 ### ![Mais Sobre Funções](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/MaisFuncoes)
    * Conceitos avançados de funções
@@ -75,8 +76,14 @@
       * Constantes
       * Ripple
       * Mock
-           
+      
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/MotivationSplash.jpeg)
+
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/MotivationMain.jpeg)
+
 ### ![ConstraintLayout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/ConstraintLayout)
    * Apresentando Constraint Layout e alguns exercícios
       * Tela de Login usando Constraint Layout
       * Tela sobre Cappuccino usando Constraint Layout
+
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Coffe.jpg)
