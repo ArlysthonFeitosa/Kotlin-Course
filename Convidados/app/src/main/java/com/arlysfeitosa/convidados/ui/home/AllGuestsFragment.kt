@@ -1,4 +1,4 @@
-package com.arlysfeitosa.convidados.ui.gallery
+package com.arlysfeitosa.convidados.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.arlysfeitosa.convidados.R
 
-class GalleryFragment : Fragment() {
+class AllGuestsFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var allGuestsViewModel: AllGuestsViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-                ViewModelProvider(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+        allGuestsViewModel =
+                ViewModelProvider(this).get(AllGuestsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        allGuestsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
