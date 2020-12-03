@@ -1,4 +1,4 @@
-package com.arlysfeitosa.convidados.ui.home
+package com.arlysfeitosa.convidados.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
