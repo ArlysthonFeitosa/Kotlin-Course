@@ -22,7 +22,6 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         mViewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
 
         setListeners()
-
         observe()
     }
 
