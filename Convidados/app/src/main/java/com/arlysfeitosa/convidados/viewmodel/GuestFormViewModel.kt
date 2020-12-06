@@ -2,12 +2,16 @@ package com.arlysfeitosa.convidados.viewmodel
 
 import android.app.Application
 import android.content.Context
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.arlysfeitosa.convidados.service.model.GuestModel
 import com.arlysfeitosa.convidados.service.repository.GuestRepository
+import com.arlysfeitosa.convidados.view.AllGuestsFragment
 
 class GuestFormViewModel(application: Application) : AndroidViewModel(application) {
     private val mContext = application.applicationContext

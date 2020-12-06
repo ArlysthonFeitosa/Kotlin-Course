@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -13,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arlysfeitosa.convidados.R
 import com.arlysfeitosa.convidados.view.adapter.GuestAdapter
 import com.arlysfeitosa.convidados.viewmodel.AllGuestsViewModel
-import kotlinx.android.synthetic.main.fragment_all.*
 
 class AllGuestsFragment : Fragment() {
 
     private lateinit var allGuestsViewModel: AllGuestsViewModel
+    private val mAdapter:GuestAdapter = GuestAdapter()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -31,14 +30,25 @@ class AllGuestsFragment : Fragment() {
 
         //RecyclerView
         //1 - obter a recycler
+
         val recycler = root.findViewById<RecyclerView>(R.id.recycler_all_guests)
 
         //2 - definir um layout
         recycler.layoutManager = LinearLayoutManager(context)
 
         //3 - definir um adapter
-        recycler.adapter = GuestAdapter()
+        recycler.adapter = mAdapter
+        observer()
+        allGuestsViewModel.load()
 
         return root
+    }
+
+    private fun observer(){
+        //viewLifecycleOwner, variável do fragment q faz o papel de contexto
+        allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer{
+            mAdapter.updateGuests(it)
+            mAdapter.notifyDataSetChanged()
+        })
     }
 }

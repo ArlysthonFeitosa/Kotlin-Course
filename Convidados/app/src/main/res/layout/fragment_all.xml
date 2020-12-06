@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.AllGuestsFragment">
 
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_all_guests"
         android:layout_width="0dp"
         android:layout_height="match_parent"
