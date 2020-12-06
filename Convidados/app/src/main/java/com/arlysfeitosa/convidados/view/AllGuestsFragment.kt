@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arlysfeitosa.convidados.R
+import com.arlysfeitosa.convidados.view.adapter.GuestAdapter
 import com.arlysfeitosa.convidados.viewmodel.AllGuestsViewModel
 import kotlinx.android.synthetic.main.fragment_all.*
 
@@ -36,7 +37,7 @@ class AllGuestsFragment : Fragment() {
         recycler.layoutManager = LinearLayoutManager(context)
 
         //3 - definir um adapter
-        
+        recycler.adapter = GuestAdapter()
 
         return root
     }
