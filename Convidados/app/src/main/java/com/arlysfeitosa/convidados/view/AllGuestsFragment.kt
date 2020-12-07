@@ -39,16 +39,19 @@ class AllGuestsFragment : Fragment() {
         //3 - definir um adapter
         recycler.adapter = mAdapter
         observer()
-        allGuestsViewModel.load()
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        allGuestsViewModel.load()
     }
 
     private fun observer(){
         //viewLifecycleOwner, variável do fragment q faz o papel de contexto
         allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer{
             mAdapter.updateGuests(it)
-            mAdapter.notifyDataSetChanged()
         })
     }
 }

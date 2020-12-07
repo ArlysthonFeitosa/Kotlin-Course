@@ -1,6 +1,5 @@
 package com.arlysfeitosa.convidados.view
 
-import android.content.ComponentCallbacks2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -33,7 +32,6 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             val name: String = edit_name.text.toString()
             val presence = radio_presence.isChecked()
             mViewModel.save(name, presence)
-            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
