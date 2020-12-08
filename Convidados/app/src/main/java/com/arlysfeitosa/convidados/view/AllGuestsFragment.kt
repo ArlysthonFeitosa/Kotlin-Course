@@ -1,5 +1,6 @@
 package com.arlysfeitosa.convidados.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,18 +11,22 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arlysfeitosa.convidados.R
+import com.arlysfeitosa.convidados.service.constants.GuestConstants
 import com.arlysfeitosa.convidados.view.adapter.GuestAdapter
+import com.arlysfeitosa.convidados.view.listener.GuestListener
 import com.arlysfeitosa.convidados.viewmodel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
     private lateinit var allGuestsViewModel: AllGuestsViewModel
-    private val mAdapter:GuestAdapter = GuestAdapter()
+    private val mAdapter: GuestAdapter = GuestAdapter()
+    private lateinit var mListener: GuestListener
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         allGuestsViewModel = ViewModelProvider(this)
             .get(AllGuestsViewModel::class.java)
@@ -38,6 +43,21 @@ class AllGuestsFragment : Fragment() {
 
         //3 - definir um adapter
         recycler.adapter = mAdapter
+
+        mListener = object : GuestListener {
+            override fun onClick(id: Int) {
+                val intent = Intent(context, GuestFormActivity::class.java)
+                val bundle = Bundle()
+
+                bundle.putInt(GuestConstants.GUESTID, id)
+                intent.putExtras(bundle)
+
+                startActivity(intent)
+            }
+        }
+
+        mAdapter.attachListener(mListener)
+
         observer()
 
         return root
@@ -48,9 +68,9 @@ class AllGuestsFragment : Fragment() {
         allGuestsViewModel.load()
     }
 
-    private fun observer(){
+    private fun observer() {
         //viewLifecycleOwner, variável do fragment q faz o papel de contexto
-        allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer{
+        allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer {
             mAdapter.updateGuests(it)
         })
     }

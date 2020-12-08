@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.arlysfeitosa.convidados.MainActivity
 import com.arlysfeitosa.convidados.viewmodel.GuestFormViewModel
 import com.arlysfeitosa.convidados.R
+import com.arlysfeitosa.convidados.service.constants.GuestConstants
 import kotlinx.android.synthetic.main.activity_guest_form.*
 
 class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,6 +25,7 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
         setListeners()
         observe()
+        loadData()
     }
 
     override fun onClick(v: View) {
@@ -32,6 +34,14 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             val name: String = edit_name.text.toString()
             val presence = radio_presence.isChecked()
             mViewModel.save(name, presence)
+        }
+    }
+
+    private fun loadData() {
+        val bundle = intent.extras
+        if (bundle != null) {
+            val id = bundle.getInt(GuestConstants.GUESTID)
+            mViewModel.load(id)
         }
     }
 
@@ -44,6 +54,17 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             }
             finish()
         })
+
+        mViewModel.guest.observe(this, Observer {
+            edit_name.setText(it.name)
+
+            if (it.presence) {
+                radio_presence.isChecked = true
+            } else {
+                radio_absent.isChecked = true
+            }
+        })
+
     }
 
     private fun setListeners() {

@@ -32,7 +32,6 @@ class GuestRepository private constructor(context: Context) {
         return try {
             val db = mGuestDataBaseHelper.readableDatabase
 
-
             val projection: Array<String> = arrayOf(
                 DataBaseConstants.GUEST.COLUMNS.NAME,
                 DataBaseConstants.GUEST.COLUMNS.PRESENCE
