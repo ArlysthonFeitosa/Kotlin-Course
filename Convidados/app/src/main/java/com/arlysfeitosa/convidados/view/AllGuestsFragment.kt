@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,7 +19,7 @@ import com.arlysfeitosa.convidados.viewmodel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
-    private lateinit var allGuestsViewModel: AllGuestsViewModel
+    private lateinit var mViewModel: AllGuestsViewModel
     private val mAdapter: GuestAdapter = GuestAdapter()
     private lateinit var mListener: GuestListener
 
@@ -28,7 +29,7 @@ class AllGuestsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        allGuestsViewModel = ViewModelProvider(this)
+        mViewModel = ViewModelProvider(this)
             .get(AllGuestsViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_all, container, false)
@@ -54,10 +55,20 @@ class AllGuestsFragment : Fragment() {
 
                 startActivity(intent)
             }
+
+            override fun onDelete(id: Int) {
+
+                if(mViewModel.delete(id)){
+                    Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(context, "Falha", Toast.LENGTH_SHORT).show()
+                }
+
+                mViewModel.load()
+            }
         }
 
         mAdapter.attachListener(mListener)
-
         observer()
 
         return root
@@ -65,12 +76,12 @@ class AllGuestsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        allGuestsViewModel.load()
+        mViewModel.load()
     }
 
     private fun observer() {
         //viewLifecycleOwner, variável do fragment q faz o papel de contexto
-        allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer {
+        mViewModel.guestList.observe(viewLifecycleOwner, Observer {
             mAdapter.updateGuests(it)
         })
     }
