@@ -15,28 +15,23 @@ import com.arlysfeitosa.convidados.R
 import com.arlysfeitosa.convidados.service.constants.GuestConstants
 import com.arlysfeitosa.convidados.view.adapter.GuestAdapter
 import com.arlysfeitosa.convidados.view.listener.GuestListener
-import com.arlysfeitosa.convidados.viewmodel.AllGuestsViewModel
+import com.arlysfeitosa.convidados.viewmodel.GuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
-    private lateinit var mViewModel: AllGuestsViewModel
+    private lateinit var mViewModel: GuestsViewModel
     private val mAdapter: GuestAdapter = GuestAdapter()
     private lateinit var mListener: GuestListener
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, s: Bundle?): View? {
 
         mViewModel = ViewModelProvider(this)
-            .get(AllGuestsViewModel::class.java)
+            .get(GuestsViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_all, container, false)
 
         //RecyclerView
         //1 - obter a recycler
-
         val recycler = root.findViewById<RecyclerView>(R.id.recycler_all_guests)
 
         //2 - definir um layout
@@ -58,13 +53,13 @@ class AllGuestsFragment : Fragment() {
 
             override fun onDelete(id: Int) {
 
-                if(mViewModel.delete(id)){
+                if (mViewModel.delete(id)) {
                     Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show()
-                }else{
+                } else {
                     Toast.makeText(context, "Falha", Toast.LENGTH_SHORT).show()
                 }
 
-                mViewModel.load()
+                mViewModel.load(GuestConstants.FILTER.EMPTY)
             }
         }
 
@@ -76,7 +71,7 @@ class AllGuestsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        mViewModel.load()
+        mViewModel.load(GuestConstants.FILTER.EMPTY)
     }
 
     private fun observer() {
