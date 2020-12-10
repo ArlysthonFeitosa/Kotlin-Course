@@ -20,7 +20,6 @@ class GuestFormViewModel(application: Application) : AndroidViewModel(applicatio
     fun save(id:Int, name: String, presence: Boolean) {
         val guest = GuestModel(id, name, presence)
 
-        //mGuestRepository.update(guest)
         if(id == 0){
             mSaveGuest.value = mGuestRepository.save(guest)
         }else{
