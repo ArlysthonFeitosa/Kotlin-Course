@@ -8,14 +8,20 @@ import com.arlysfeitosa.convidados.R
 import com.arlysfeitosa.convidados.service.model.GuestModel
 import com.arlysfeitosa.convidados.view.listener.GuestListener
 
+//ViewHolder, onde trata cada item da lista
 class GuestViewHolder(itemView: View, private val listener: GuestListener) :
     RecyclerView.ViewHolder(itemView) {
 
+    //Ligar item da lista com um Guest do banco de dados
     fun bind(guest: GuestModel) {
-        val textName = itemView.findViewById<TextView>(R.id.text_name)
-        textName.text = guest.name
 
+        //item da lista
+        val textName = itemView.findViewById<TextView>(R.id.text_name)
+        textName.text = guest.name //Atribuindo valor do guest para o item
+
+        //Ao clicar no item
         textName.setOnClickListener {
+            //Está com o override, na fragment
             listener.onClick(guest.id)
         }
 
