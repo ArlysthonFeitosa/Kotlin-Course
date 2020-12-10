@@ -31,6 +31,14 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         radio_presence.isChecked = true
     }
 
+    private fun loadData() {
+        val bundle = intent.extras
+        if (bundle != null) {
+            mGuestId = bundle.getInt(GuestConstants.GUESTID)
+            mViewModel.load(mGuestId)
+        }
+    }
+
     override fun onClick(v: View) {
         val id = v.id
         if (id == R.id.button_save) {
@@ -38,14 +46,6 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             val presence = radio_presence.isChecked()
 
             mViewModel.save(mGuestId, name, presence)
-        }
-    }
-
-    private fun loadData() {
-        val bundle = intent.extras
-        if (bundle != null) {
-            mGuestId = bundle.getInt(GuestConstants.GUESTID)
-            mViewModel.load(mGuestId)
         }
     }
 

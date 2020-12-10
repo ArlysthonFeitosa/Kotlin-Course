@@ -9,6 +9,8 @@ import com.arlysfeitosa.convidados.service.model.GuestModel
 import java.lang.Exception
 
 //CRUD - Creat, Read, Update, Delete
+//Singleton - só uma instância da classe GuestRepository ao mesmo tempo
+//Private constructor, para ninguém instanciar a classe de qualquer canto
 
 class GuestRepository private constructor(context: Context) {
 
@@ -80,13 +82,19 @@ class GuestRepository private constructor(context: Context) {
         }
     }
 
-    //Singleton
+    //Salvar novos registros
     fun save(guest: GuestModel): Boolean {
         return try {
             val db = mGuestDataBaseHelper.writableDatabase
+
+            //ArrayMap de (key, value)
             val contentValues = ContentValues()
+
+            //Inserindo pares de chave e valor para botar no banco
             contentValues.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
             contentValues.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, guest.presence)
+
+            //Inserindo contentValues no banco
             db.insert(DataBaseConstants.GUEST.TABLE_NAME, null, contentValues)
             true
         } catch (exception: Exception) {
@@ -94,12 +102,14 @@ class GuestRepository private constructor(context: Context) {
         }
     }
 
+    //Pegar todos os registros
     fun getAll(): List<GuestModel> {
+
+        //lista de convidados
         val list: MutableList<GuestModel> = ArrayList()
 
         return try {
             val db = mGuestDataBaseHelper.readableDatabase
-
 
             val projection: Array<String> = arrayOf(
                 DataBaseConstants.GUEST.COLUMNS.ID,
@@ -115,7 +125,10 @@ class GuestRepository private constructor(context: Context) {
             )
 
             if (cursor != null && cursor.count > 0) {
+
+                //Enquanto der para ir para um próximo registo
                 while (cursor.moveToNext()) {
+                    //Pegando valores atuais do registro que o cursor aponta
                     val id =
                         cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.ID))
                     val name =
@@ -135,6 +148,7 @@ class GuestRepository private constructor(context: Context) {
         }
     }
 
+    //Selecionar apenas os presentes
     fun getPresent(): List<GuestModel> {
 
         val list: MutableList<GuestModel> = ArrayList()
@@ -142,6 +156,7 @@ class GuestRepository private constructor(context: Context) {
         return try {
             val db = mGuestDataBaseHelper.readableDatabase
 
+            //Outra forma de criar um cursor, onde o cursor passa por um filtro
             val cursor =
                 db.rawQuery("SELECT id, name, presence FROM Guest WHERE presence = 1", null)
 
@@ -166,6 +181,7 @@ class GuestRepository private constructor(context: Context) {
         }
     }
 
+    //Selecionando apenas ausentes
     fun getAbsent(): List<GuestModel> {
         val list: MutableList<GuestModel> = ArrayList()
 
@@ -196,10 +212,12 @@ class GuestRepository private constructor(context: Context) {
         }
     }
 
+    //Atualizando registro de um convidado especidico
     fun update(guest: GuestModel): Boolean {
         return try {
             val db = mGuestDataBaseHelper.writableDatabase
 
+            //mapa com os dados novos do convidado
             val contentValues = ContentValues()
             contentValues.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
             contentValues.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, guest.presence)
@@ -215,6 +233,7 @@ class GuestRepository private constructor(context: Context) {
         }
     }
 
+    //Apagar convidado pelo id
     fun delete(id: Int): Boolean {
         return try {
             val db = mGuestDataBaseHelper.writableDatabase
