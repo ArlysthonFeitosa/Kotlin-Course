@@ -16,7 +16,6 @@ class GuestsViewModel(application: Application) : AndroidViewModel(application) 
     val guestList: LiveData<List<GuestModel>> = mGuestList
 
     fun load(filter: Int) {
-
         if(filter == GuestConstants.FILTER.EMPTY){
             mGuestList.value = mGuestRepository.getAll()
         }else if(filter == GuestConstants.FILTER.PRESENT){

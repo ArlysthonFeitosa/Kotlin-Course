@@ -12,8 +12,11 @@ import java.lang.Exception
 
 class GuestRepository private constructor(context: Context) {
 
+    //Banco de dados
     private var mGuestDataBaseHelper = GuestDataBaseHelper(context)
 
+
+    //Companion Object para inicializar o repositorio sem precisar inicializar a classe em si
     companion object {
         private lateinit var repository: GuestRepository
 
@@ -25,17 +28,20 @@ class GuestRepository private constructor(context: Context) {
         }
     }
 
+    //Pegar um convidado do banco de dados
     fun get(id: Int): GuestModel? {
-
         var guest: GuestModel? = null
 
         return try {
+            //criando variavel para leitura do banco de dados
             val db = mGuestDataBaseHelper.readableDatabase
 
+            //Array com as colunas existentes no banco de dados
             val projection: Array<String> = arrayOf(
                 DataBaseConstants.GUEST.COLUMNS.NAME,
                 DataBaseConstants.GUEST.COLUMNS.PRESENCE
             )
+
 
             val selection = DataBaseConstants.GUEST.COLUMNS.ID + " = ?"
             val args = arrayOf(id.toString())
@@ -47,16 +53,25 @@ class GuestRepository private constructor(context: Context) {
                 null, null
             )
 
+            /*
+            cursor:
+            bancoDeDados.query(nome da tabela, array com as colunas, coluna de id =?, array com o id...)
+             */
+
+            //se o cursor não for nulo e seu contador for maior que 0
             if (cursor != null && cursor.count > 0) {
                 cursor.moveToFirst()
 
+                //pegando dado do registro onde o cursor está posicionado
                 val name =
                     cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
                 val presence =
                     (cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE)) == 1)
 
+                //retornando o GuestModel
                 guest = GuestModel(id, name, presence)
             }
+            //fechando o cursor obrigatoriamente
             cursor.close()
 
             guest

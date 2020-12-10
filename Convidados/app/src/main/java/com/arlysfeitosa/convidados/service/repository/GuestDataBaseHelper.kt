@@ -25,5 +25,10 @@ class GuestDataBaseHelper(context: Context) :
                     + DataBaseConstants.GUEST.COLUMNS.ID + " integer primary key autoincrement, "
                     + DataBaseConstants.GUEST.COLUMNS.NAME + " text, "
                     + DataBaseConstants.GUEST.COLUMNS.PRESENCE + " integer);")
+        /*
+        create table NOME_DA_TABELA (COLUNA 1 tipo primary key autoincrement,
+                                    COLUNA 2 tipo,
+                                    COLUNA 3 tipo);
+         */
     }
 }
