@@ -11,20 +11,30 @@ import com.arlysfeitosa.convidados.service.repository.GuestRepository
 
 class GuestsViewModel(application: Application) : AndroidViewModel(application) {
 
+    //Instanciando repositório indiretamente
     private val mGuestRepository = GuestRepository.getInstance(application.applicationContext)
+
+    //Lista com os convidados para ir para a Recycler View
     private val mGuestList = MutableLiveData<List<GuestModel>>()
+
+    //variável para ser observada da fragment
     val guestList: LiveData<List<GuestModel>> = mGuestList
 
+    //Carregar para recycler
     fun load(filter: Int) {
-        if(filter == GuestConstants.FILTER.EMPTY){
+        //filtrar os convidados necessários para preencher a recycler
+        if (filter == GuestConstants.FILTER.EMPTY) {
             mGuestList.value = mGuestRepository.getAll()
-        }else if(filter == GuestConstants.FILTER.PRESENT){
+
+        } else if (filter == GuestConstants.FILTER.PRESENT) {
             mGuestList.value = mGuestRepository.getPresent()
-        }else{
+
+        } else {
             mGuestList.value = mGuestRepository.getAbsent()
         }
     }
 
+    //função para apagar da lista, que acessa o repositório
     fun delete(id: Int): Boolean {
         return mGuestRepository.delete(id)
     }

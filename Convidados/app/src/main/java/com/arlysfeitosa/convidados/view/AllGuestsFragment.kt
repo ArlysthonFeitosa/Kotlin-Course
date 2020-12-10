@@ -19,15 +19,22 @@ import com.arlysfeitosa.convidados.viewmodel.GuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
+    //View Model da fragment
     private lateinit var mViewModel: GuestsViewModel
-    private val mAdapter: GuestAdapter = GuestAdapter()
+
+    //Interface que fornece funções para override
     private lateinit var mListener: GuestListener
+
+    //Adapter da Recycler View
+    private val mAdapter: GuestAdapter = GuestAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, s: Bundle?): View? {
 
+        //Inicializando View Model
         mViewModel = ViewModelProvider(this)
             .get(GuestsViewModel::class.java)
 
+        //Criação da fragment
         val root = inflater.inflate(R.layout.fragment_all, container, false)
 
         //RecyclerView
@@ -40,13 +47,16 @@ class AllGuestsFragment : Fragment() {
         //3 - definir um adapter
         recycler.adapter = mAdapter
 
+        //Listener para aplicar no adapter, assim, todas as funções serão aplicadas nos itens da recycler
         mListener = object : GuestListener {
             override fun onClick(id: Int) {
                 val intent = Intent(context, GuestFormActivity::class.java)
+
+                //Bundle, para adicionar valores em (key, value)
                 val bundle = Bundle()
 
                 bundle.putInt(GuestConstants.GUESTID, id)
-                intent.putExtras(bundle)
+                intent.putExtras(bundle) //Passando valor pela intent
 
                 startActivity(intent)
             }
@@ -63,19 +73,23 @@ class AllGuestsFragment : Fragment() {
             }
         }
 
+        //Aplicando interface no adapter
         mAdapter.attachListener(mListener)
         observer()
 
         return root
     }
 
+    //Depois de parar e voltar para a activity, incia o resume
     override fun onResume() {
         super.onResume()
+        //Atualizando dados
         mViewModel.load(GuestConstants.FILTER.EMPTY)
     }
 
     private fun observer() {
         //viewLifecycleOwner, variável do fragment q faz o papel de contexto
+        //Quando a lista de convidados atualizar, atualiza a lista
         mViewModel.guestList.observe(viewLifecycleOwner, Observer {
             mAdapter.updateGuests(it)
         })
