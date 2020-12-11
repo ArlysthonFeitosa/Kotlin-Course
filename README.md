@@ -87,3 +87,17 @@
       * Tela sobre Cappuccino usando Constraint Layout
       
 ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Coffe.jpg)
+
+### ![Aplicativo Convidados](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Convidados)
+   * Aplicativo que gerencia convidados para algum encontro
+      * Arquitetura MVVM
+      * Banco de dados SQLite
+      * Recycler View
+      * Alert Dialog
+      * ViewModels
+      * Constants
+      * Singleton
+      * Entidades
+      * DAO
+ 
+![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados1.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados2.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados3.PNG)
