@@ -62,6 +62,7 @@ class AllGuestsFragment : Fragment() {
             }
 
             override fun onDelete(id: Int) {
+                mViewModel.delete(id)
                 mViewModel.load(GuestConstants.FILTER.EMPTY)
             }
         }
