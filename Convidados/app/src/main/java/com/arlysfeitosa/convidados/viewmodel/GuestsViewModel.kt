@@ -12,7 +12,7 @@ import com.arlysfeitosa.convidados.service.repository.GuestRepository
 class GuestsViewModel(application: Application) : AndroidViewModel(application) {
 
     //Instanciando repositório indiretamente
-    private val mGuestRepository = GuestRepository.getInstance(application.applicationContext)
+    private val mGuestRepository = GuestRepository(application.applicationContext)
 
     //Lista com os convidados para ir para a Recycler View
     private val mGuestList = MutableLiveData<List<GuestModel>>()
@@ -36,6 +36,8 @@ class GuestsViewModel(application: Application) : AndroidViewModel(application) 
 
     //função para apagar da lista, que acessa o repositório
     fun delete(id: Int): Boolean {
-        return mGuestRepository.delete(id)
+        val guest = mGuestRepository.get(id)
+
+        return mGuestRepository.delete(guest)
     }
 }
