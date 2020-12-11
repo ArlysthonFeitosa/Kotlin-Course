@@ -50,13 +50,6 @@ class AbsentFragment : Fragment() {
             }
 
             override fun onDelete(id: Int) {
-
-                if (mViewModel.delete(id)) {
-                    Toast.makeText(context, "Sucesso", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(context, "Falha", Toast.LENGTH_SHORT).show()
-                }
-
                 mViewModel.load(GuestConstants.FILTER.ABSENT)
             }
         }

@@ -8,6 +8,7 @@ import com.arlysfeitosa.convidados.service.model.GuestModel
 import com.arlysfeitosa.convidados.service.repository.GuestRepository
 
 class GuestFormViewModel(application: Application) : AndroidViewModel(application) {
+
     private val mContext = application.applicationContext
     private var mGuestRepository: GuestRepository = GuestRepository(mContext)
 

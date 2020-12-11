@@ -45,7 +45,7 @@ class GuestRepository(context: Context) {
     }
 
     //Apagar convidado pelo id
-    fun delete(guest: GuestModel):Boolean{
-        return mDataBase.delete(guest)
+    fun delete(guest: GuestModel){
+        mDataBase.delete(guest)
     }
 }

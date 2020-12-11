@@ -35,9 +35,8 @@ class GuestsViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     //função para apagar da lista, que acessa o repositório
-    fun delete(id: Int): Boolean {
+    fun delete(id: Int){
         val guest = mGuestRepository.get(id)
-
-        return mGuestRepository.delete(guest)
+        mGuestRepository.delete(guest)
     }
 }
