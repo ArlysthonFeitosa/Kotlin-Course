@@ -21,13 +21,11 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guest_form)
-
+        
         mViewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
-
         setListeners()
         observe()
         loadData()
-
         radio_presence.isChecked = true
     }
 
@@ -44,7 +42,6 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         if (id == R.id.button_save) {
             val name: String = edit_name.text.toString()
             val presence = radio_presence.isChecked()
-
             mViewModel.save(mGuestId, name, presence)
         }
     }
@@ -68,7 +65,6 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
                 radio_absent.isChecked = true
             }
         })
-
     }
 
     private fun setListeners() {
