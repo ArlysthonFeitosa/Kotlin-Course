@@ -1,12 +1,12 @@
 # Curso de Kotlin
 
-### ![Exercícios Básicos](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/ExerciciosBasicos)
+### [Exercícios Básicos](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/ExerciciosBasicos)
 * Alguns exercícios usando testes unitários
    * Escrever a String ao contrário
    * Identificar o número de vogais
    * Identificar o número de consoantes 
 
-### ![Programação Orientada a Objetos](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/orientacaoObjetos)
+### [Programação Orientada a Objetos](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/orientacaoObjetos)
 * Introdução na área de POO
    * Classes
    * Construtores
@@ -16,7 +16,7 @@
    * Field
    * With
 
-### ![POO Avançada](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/orientacaoObjetosHeranca/src)
+### [POO Avançada](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/orientacaoObjetosHeranca/src)
   * Alguns Termos de POO avançados
     * Classes Abstratas
     * Constantes e Estáticas
@@ -28,7 +28,7 @@
     * Sobrecarga
     * Herança
 
-### ![Coleções](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Collections)
+### [Coleções](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Collections)
    * As listas de elementos
       * ListOf
       * MutableListOf
@@ -39,7 +39,7 @@
       * MutableMapOf
       * HashMapOf
       
-### ![Aplicativo Gasto de Viagens](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/GastoViagem)
+### [Aplicativo Gasto de Viagens](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/GastoViagem)
    * Aplicativo que calcula o gasto em uma viagem
       * LinearLayout
       * EditText 
@@ -47,19 +47,19 @@
       * Buttons
       * Funções de click
 
-![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/AppGastosDaViagem.png)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/AppGastosDaViagem.png)
 
-### ![Elementos - 2](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Elementos)
+### [Elementos - 2](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Elementos)
    * Alguns elementos e a interação entre eles
       * Image View
       * Check Box
       * Interação
 
 
-### ![Relative Layout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/RelativeLayout)
+### [Relative Layout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/RelativeLayout)
    * Exercício de tela de login com Relative Layout
 
-### ![Mais Sobre Funções](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/MaisFuncoes)
+### [Mais Sobre Funções](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/MaisFuncoes)
    * Conceitos avançados de funções
       * Funções Anônimas
       * Funções Locais
@@ -68,7 +68,7 @@
       * Lambdas
       * Operador Overloading
 
-### ![Aplicativo Motivation](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Motivation)
+### [Aplicativo Motivation](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Motivation)
    * Aplicativo de frases motivadoras
       * Splash Activity
       * Internacionalização
@@ -77,18 +77,18 @@
       * Ripple
       * Mock
       
-![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/MotivationSplash.jpeg)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/MotivationSplash.jpeg)
 
-![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/MotivationMain.jpeg)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/MotivationMain.jpeg)
 
-### ![ConstraintLayout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/ConstraintLayout)
+### [ConstraintLayout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/ConstraintLayout)
    * Apresentando Constraint Layout e alguns exercícios
       * Tela de Login usando Constraint Layout
       * Tela sobre Cappuccino usando Constraint Layout
       
-![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Coffe.jpg)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Coffe.jpg)
 
-### ![Aplicativo Convidados](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Convidados)
+### [Aplicativo Convidados](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Convidados)
    * Aplicativo que gerencia convidados para algum encontro
       * Arquitetura MVVM
       * Banco de dados SQLite
@@ -100,4 +100,4 @@
       * Entidades
       * DAO
  
-![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados1.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados2.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados3.PNG)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados1.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados2.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Convidados3.PNG)
