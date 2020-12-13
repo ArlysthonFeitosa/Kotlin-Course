@@ -1,0 +1,30 @@
+package com.example.tasks.service.repository
+
+import com.example.tasks.service.HeaderModel
+import com.example.tasks.service.repository.remote.PersonService
+import com.example.tasks.service.repository.remote.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+
+class PersonRepository {
+
+    private val mRemote = RetrofitClient.createService(PersonService::class.java)
+
+    fun login(email: String, password: String) {
+        val call: Call<HeaderModel> = mRemote.login(email, password)
+        //Sincrona - Usuário espera até a API retornar (pode ser que demore)
+
+        //Assincrona
+        call.enqueue(object : Callback<HeaderModel>{
+            override fun onFailure(call: Call<HeaderModel>, t: Throwable) {
+                val s = ""
+            }
+
+            override fun onResponse(call: Call<HeaderModel>, response: Response<HeaderModel>) {
+                val header = response.body()
+            }
+        })
+    }
+}
