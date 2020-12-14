@@ -57,10 +57,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun observe() {
         mViewModel.login.observe(this, Observer {
-            if(it){
+            if(it.success()){
                 startActivity(Intent(this, MainActivity::class.java))
             }else{
-                Toast.makeText(this, "Erro ao login", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, it.faliure(), Toast.LENGTH_SHORT).show()
             }
         })
     }
