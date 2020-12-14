@@ -14,15 +14,21 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import kotlin.coroutines.coroutineContext
 
+//Repositório de operações na API
 class PersonRepository(val context:Context) {
 
+    //Retrofit
     private val mRemote = RetrofitClient.createService(PersonService::class.java)
 
+    //Login a partir da API
     fun login(email: String, password: String, listener: APIListener) {
+
+        //Preparando chamada de login vindo da API
         val call: Call<HeaderModel> = mRemote.login(email, password)
+
         //Sincrona - Usuário espera até a API retornar (pode ser que demore)
 
-        //Assincrona
+        //Enqueue - Uma chamada assincrona vindo da API
         call.enqueue(object : Callback<HeaderModel> {
             //Quando a comunicação não é feita com sucesso
             override fun onFailure(call: Call<HeaderModel>, t: Throwable) {
@@ -31,14 +37,16 @@ class PersonRepository(val context:Context) {
 
             //Quando a comunicação é feita, mesmo retornando falha
             override fun onResponse(call: Call<HeaderModel>, response: Response<HeaderModel>) {
+                //Se a resposta for diferente de 200 (sucesso)
                 if (response.code() != TaskConstants.HTTP.SUCCESS) {
-                    val validation =
-                        Gson().fromJson(response.errorBody()!!.string(), String::class.java)
+                    //Pegando erro em Json e tratando
+                    val validation = Gson().fromJson(response.errorBody()!!.string(),
+                        String::class.java)
                     listener.onFaliure(validation)
                 }else{
+                    //it - Modelo retornado da API
                     response.body()?.let { listener.onSuccess(it) }
                 }
-
             }
         })
     }

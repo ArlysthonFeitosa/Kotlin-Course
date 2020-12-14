@@ -13,9 +13,13 @@ import com.example.tasks.service.repository.local.SecurityPreferences
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
+    //Repositório para operações na API
     private val mPersonRepository = PersonRepository(application)
+
+    //Acesso a dados rápidos do projeto
     private val mSharedPreferences = SecurityPreferences(application)
 
+    //Variável observada para passar indormações para a activity (Status, Mensagem)
     private val mLogin = MutableLiveData<ValidationListener>()
     var login: LiveData<ValidationListener> = mLogin
 
@@ -24,7 +28,9 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
      * Faz login usando API
      */
     fun doLogin(email: String, password: String) {
+
         mPersonRepository.login(email, password, object : APIListener {
+            //Override nas funções da API
             override fun onSuccess(model: HeaderModel) {
                 mSharedPreferences.store(TaskConstants.SHARED.TOKEN_KEY, model.token)
                 mSharedPreferences.store(TaskConstants.SHARED.PERSON_KEY, model.personKey)
@@ -36,7 +42,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             override fun onFaliure(str: String) {
                 mLogin.value = ValidationListener(str)
             }
-
         })
     }
 
@@ -45,5 +50,4 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
      */
     fun verifyLoggedUser() {
     }
-
 }

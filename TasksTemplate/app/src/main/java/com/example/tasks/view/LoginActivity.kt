@@ -57,9 +57,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun observe() {
         mViewModel.login.observe(this, Observer {
+            //it.success(): booleano do status
             if(it.success()){
                 startActivity(Intent(this, MainActivity::class.java))
             }else{
+                //Se deu falha, pega a mensagem de erro
                 Toast.makeText(this, it.faliure(), Toast.LENGTH_SHORT).show()
             }
         })

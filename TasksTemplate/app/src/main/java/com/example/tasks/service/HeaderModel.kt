@@ -2,8 +2,8 @@ package com.example.tasks.service
 
 import com.google.gson.annotations.SerializedName
 
+//Modelo da pessoa no login
 class HeaderModel {
-
     @SerializedName("token")
     var token: String = ""
 
