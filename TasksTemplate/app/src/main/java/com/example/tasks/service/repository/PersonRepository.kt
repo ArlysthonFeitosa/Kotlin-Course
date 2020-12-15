@@ -15,7 +15,7 @@ import retrofit2.Retrofit
 import kotlin.coroutines.coroutineContext
 
 //Repositório de operações na API
-class PersonRepository(val context:Context) {
+class PersonRepository(val context: Context) {
 
     //Retrofit
     private val mRemote = RetrofitClient.createService(PersonService::class.java)
@@ -40,10 +40,44 @@ class PersonRepository(val context:Context) {
                 //Se a resposta for diferente de 200 (sucesso)
                 if (response.code() != TaskConstants.HTTP.SUCCESS) {
                     //Pegando erro em Json e tratando
-                    val validation = Gson().fromJson(response.errorBody()!!.string(),
-                        String::class.java)
+                    val validation = Gson().fromJson(
+                        response.errorBody()!!.string(),
+                        String::class.java
+                    )
                     listener.onFaliure(validation)
-                }else{
+                } else {
+                    //it - Modelo retornado da API
+                    response.body()?.let { listener.onSuccess(it) }
+                }
+            }
+        })
+    }
+
+    fun create(name: String, email: String, password: String, listener: APIListener) {
+
+        //Preparando chamada de criação de usuário vindo da API
+        val call: Call<HeaderModel> = mRemote.create(name, email, password, false)
+
+        //Sincrona - Usuário espera até a API retornar (pode ser que demore)
+
+        //Enqueue - Uma chamada assincrona vindo da API
+        call.enqueue(object : Callback<HeaderModel> {
+            //Quando a comunicação não é feita com sucesso
+            override fun onFailure(call: Call<HeaderModel>, t: Throwable) {
+                listener.onFaliure(context.getString(R.string.ERROR_UNEXPECTED))
+            }
+
+            //Quando a comunicação é feita, mesmo retornando falha
+            override fun onResponse(call: Call<HeaderModel>, response: Response<HeaderModel>) {
+                //Se a resposta for diferente de 200 (sucesso)
+                if (response.code() != TaskConstants.HTTP.SUCCESS) {
+                    //Pegando erro em Json e tratando
+                    val validation = Gson().fromJson(
+                        response.errorBody()!!.string(),
+                        String::class.java
+                    )
+                    listener.onFaliure(validation)
+                } else {
                     //it - Modelo retornado da API
                     response.body()?.let { listener.onSuccess(it) }
                 }

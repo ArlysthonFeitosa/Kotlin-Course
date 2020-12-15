@@ -14,4 +14,12 @@ interface PersonService {
     fun login(@Field("email") email: String,
               @Field("password") password: String): Call<HeaderModel>
     //Header Model - Modelo dos dados vindo da API
+
+    @POST("Authentication/Create")
+    @FormUrlEncoded //Formato de dados para passar pra API
+    fun create(@Field("name") name: String,
+               @Field("email") email: String,
+              @Field("password") password: String,
+               @Field("receiveNews") news: Boolean): Call<HeaderModel>
+    //Header Model - Modelo dos dados vindo da API
 }
