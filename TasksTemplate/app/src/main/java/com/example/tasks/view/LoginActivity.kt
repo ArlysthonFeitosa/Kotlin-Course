@@ -65,6 +65,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, it.faliure(), Toast.LENGTH_SHORT).show()
             }
         })
+
+        mViewModel.loggedUser.observe(this, Observer {
+            if(it){
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+        })
+
     }
 
     /**
