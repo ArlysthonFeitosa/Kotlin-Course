@@ -4,6 +4,7 @@ import com.example.tasks.service.model.TaskModel
 import retrofit2.Call
 import retrofit2.http.*
 
+//Métodos do serviço de atividades
 interface TaskService {
     @GET("Task")
     fun all(): Call<List<TaskModel>>

@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+//Singleton para chamada de serviço Retrofit
 class RetrofitClient private constructor() {
 
     companion object {
@@ -26,6 +27,5 @@ class RetrofitClient private constructor() {
             return getRetrofitInstance()
                 .create(serviceClass)
         }
-
     }
 }

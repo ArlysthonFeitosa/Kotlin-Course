@@ -12,10 +12,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-//Repositório de operações na API
+//Repositório de operações na PersonService
 class PersonRepository(val context: Context) {
 
-    //Retrofit
+    //Retrofit - PersonService
     private val mRemote = RetrofitClient.createService(PersonService::class.java)
 
     //Login a partir da API

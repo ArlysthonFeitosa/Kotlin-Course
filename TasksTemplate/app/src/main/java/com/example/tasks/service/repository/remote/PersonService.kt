@@ -6,7 +6,7 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
-//Interface API
+//Interface API para manipulações que possam fazer com o usuário em si
 interface PersonService {
     //Implementando serviços da API
     @POST("Authentication/Login")
