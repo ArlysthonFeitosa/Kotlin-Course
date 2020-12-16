@@ -26,7 +26,7 @@ class PriorityRepository(val context: Context) {
                 call: Call<List<PriorityModel>>,
                 response: Response<List<PriorityModel>>
             ) {
-                if (response.code() == TaskConstants.HTTP.SUCCESS){
+                if (response.code() == TaskConstants.HTTP.SUCCESS) {
                     mPriorityDatabase.clear()
                     //mPriorityDatabase.save(response.body())
                     response.body()?.let { mPriorityDatabase.save(it) }
@@ -34,4 +34,7 @@ class PriorityRepository(val context: Context) {
             }
         })
     }
+
+    fun list() = mPriorityDatabase.list()
+
 }
