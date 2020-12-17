@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.tasks.R
 import com.example.tasks.service.model.TaskModel
@@ -15,7 +16,8 @@ import kotlinx.android.synthetic.main.activity_task_form.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class TaskFormActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog.OnDateSetListener {
+class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
+    DatePickerDialog.OnDateSetListener {
 
     private lateinit var mViewModel: TaskFormViewModel
     private val mDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
@@ -38,30 +40,28 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener, DatePickerDi
         val id = v.id
         if (id == R.id.button_save) {
             handleSave()
-
-        } else if(id == R.id.button_date){
+        } else if (id == R.id.button_date) {
             showDatePicker()
         }
     }
 
-    private fun handleSave(){
-        val Task:TaskModel = TaskModel().apply {
+    private fun handleSave() {
+        val Task: TaskModel = TaskModel().apply {
             this.description = edit_description.text.toString()
             this.dueDate = button_date.text.toString()
             this.complete = check_complete.isChecked
             this.priorityId = mListPriorityId[spinner_priority.selectedItemPosition]
         }
-
         mViewModel.save(Task)
     }
 
-    private fun showDatePicker(){
+    private fun showDatePicker() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        DatePickerDialog(this, this, year, month, day ).show()
+        DatePickerDialog(this, this, year, month, day).show()
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
@@ -74,14 +74,21 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener, DatePickerDi
     private fun observe() {
         mViewModel.priorities.observe(this, androidx.lifecycle.Observer {
             val list: MutableList<String> = arrayListOf()
-            for(item in it){
+            for (item in it) {
                 list.add(item.description)
                 mListPriorityId.add(item.id)
             }
 
             val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, list)
             spinner_priority.adapter = adapter
+        })
 
+        mViewModel.validation.observe(this, androidx.lifecycle.Observer {
+            if (it.success()) {
+                Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, it.faliure(), Toast.LENGTH_SHORT).show()
+            }
         })
     }
 

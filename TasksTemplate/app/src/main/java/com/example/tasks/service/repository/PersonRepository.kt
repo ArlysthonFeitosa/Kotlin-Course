@@ -19,7 +19,7 @@ class PersonRepository(val context: Context) {
     private val mRemote = RetrofitClient.createService(PersonService::class.java)
 
     //Login a partir da API
-    fun login(email: String, password: String, listener: APIListener) {
+    fun login(email: String, password: String, listener: APIListener<HeaderModel>) {
 
         //Preparando chamada de login vindo da API
         val call: Call<HeaderModel> = mRemote.login(email, password)
@@ -51,7 +51,7 @@ class PersonRepository(val context: Context) {
         })
     }
 
-    fun create(name: String, email: String, password: String, listener: APIListener) {
+    fun create(name: String, email: String, password: String, listener: APIListener<HeaderModel>) {
 
         //Preparando chamada de criação de usuário vindo da API
         val call: Call<HeaderModel> = mRemote.create(name, email, password, false)
