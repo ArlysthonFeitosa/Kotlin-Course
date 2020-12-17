@@ -32,7 +32,7 @@ class TaskViewHolder(itemView: View, val listener: TaskListener) :
         this.mTextPriority.text = mPriorityRepository.getDescription(task.priorityId)
 
         //como é recebida a data
-        val date = SimpleDateFormat("yyyy/MM/dd").parse(task.dueDate)
+        val date = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(task.dueDate)
         this.mTextDueDate.text = mDateFormat.format(date)
 
 
@@ -43,15 +43,22 @@ class TaskViewHolder(itemView: View, val listener: TaskListener) :
         }
 
         // Eventos
-        // mTextDescription.setOnClickListener { listener.onListClick(task.id) }
-        // mImageTask.setOnClickListener { }
+        mTextDescription.setOnClickListener { listener.onListClick(task.id) }
+
+        mImageTask.setOnClickListener {
+            if(task.complete){
+                listener.onUndoClick(task.id)
+            }else{
+                listener.onCompleteClick(task.id)
+            }
+        }
 
         mTextDescription.setOnLongClickListener {
             AlertDialog.Builder(itemView.context)
                 .setTitle(R.string.remocao_de_tarefa)
                 .setMessage(R.string.remover_tarefa)
                 .setPositiveButton(R.string.sim) { dialog, which ->
-                    // listener.onDeleteClick(task.id)
+                    listener.onDeleteClick(task.id)
                 }
                 .setNeutralButton(R.string.cancelar, null)
                 .show()
