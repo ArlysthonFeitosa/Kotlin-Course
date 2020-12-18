@@ -53,21 +53,20 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     private fun handleSave() {
-
-        val Task: TaskModel = TaskModel().apply {
+        val task: TaskModel = TaskModel().apply {
             this.id = mTaskId
             this.description = edit_description.text.toString()
             this.dueDate = button_date.text.toString()
             this.complete = check_complete.isChecked
             this.priorityId = mListPriorityId[spinner_priority.selectedItemPosition]
         }
-        mViewModel.save(Task)
+        mViewModel.save(task)
     }
 
     private fun loadDataFromActivity() {
         val bundle = intent.extras
         if (bundle != null) {
-            val mTaskId = bundle.getInt(TaskConstants.BUNDLE.TASKID)
+            mTaskId = bundle.getInt(TaskConstants.BUNDLE.TASKID)
             mViewModel.load(mTaskId)
         }
     }
