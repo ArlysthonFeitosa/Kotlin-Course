@@ -19,6 +19,4 @@ interface PriorityDAO {
 
     @Query("DELETE FROM priority")
     fun clear()
-
-
 }

@@ -17,7 +17,7 @@ class TaskRepository(val context: Context) {
 
     private val mRemote = RetrofitClient.createService(TaskService::class.java)
 
-    private fun list(call: Call<List<TaskModel>>, listener: APIListener<List<TaskModel>>){
+    private fun list(call: Call<List<TaskModel>>, listener: APIListener<List<TaskModel>>) {
 
         call.enqueue(object : Callback<List<TaskModel>> {
             override fun onFailure(call: Call<List<TaskModel>>, t: Throwable) {
@@ -45,17 +45,17 @@ class TaskRepository(val context: Context) {
     }
 
     fun all(listener: APIListener<List<TaskModel>>) {
-        val call:Call<List<TaskModel>> = mRemote.all()
+        val call: Call<List<TaskModel>> = mRemote.all()
         list(call, listener)
     }
 
     fun nextWeek(listener: APIListener<List<TaskModel>>) {
-        val call:Call<List<TaskModel>> = mRemote.nextWeek()
+        val call: Call<List<TaskModel>> = mRemote.nextWeek()
         list(call, listener)
     }
 
     fun overDue(listener: APIListener<List<TaskModel>>) {
-        val call:Call<List<TaskModel>> = mRemote.overdue()
+        val call: Call<List<TaskModel>> = mRemote.overdue()
         list(call, listener)
     }
 
@@ -69,6 +69,57 @@ class TaskRepository(val context: Context) {
             }
 
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+                //Se a resposta for diferente de 200 (200 - sucesso)
+                if (response.code() != TaskConstants.HTTP.SUCCESS) {
+                    //Pegando erro em Json e tratando
+                    val validation = Gson().fromJson(
+                        response.errorBody()!!.string(),
+                        String::class.java
+                    )
+                    listener.onFaliure(validation)
+                } else {
+                    //it - Modelo retornado da API
+                    response.body()?.let { listener.onSuccess(it) }
+                }
+            }
+        })
+    }
+
+    fun update(task: TaskModel, listener: APIListener<Boolean>) {
+        val call: Call<Boolean> =
+            mRemote.update(task.id, task.priorityId, task.description, task.dueDate, task.complete)
+
+        call.enqueue(object : Callback<Boolean> {
+            override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                listener.onFaliure(context.getString(R.string.ERROR_UNEXPECTED))
+            }
+
+            override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+                //Se a resposta for diferente de 200 (200 - sucesso)
+                if (response.code() != TaskConstants.HTTP.SUCCESS) {
+                    //Pegando erro em Json e tratando
+                    val validation = Gson().fromJson(
+                        response.errorBody()!!.string(),
+                        String::class.java
+                    )
+                    listener.onFaliure(validation)
+                } else {
+                    //it - Modelo retornado da API
+                    response.body()?.let { listener.onSuccess(it) }
+                }
+            }
+        })
+    }
+
+    fun load(id: Int, listener: APIListener<TaskModel>) {
+        val call: Call<TaskModel> = mRemote.load(id)
+
+        call.enqueue(object : Callback<TaskModel> {
+            override fun onFailure(call: Call<TaskModel>, t: Throwable) {
+                listener.onFaliure(context.getString(R.string.ERROR_UNEXPECTED))
+            }
+
+            override fun onResponse(call: Call<TaskModel>, response: Response<TaskModel>) {
                 //Se a resposta for diferente de 200 (200 - sucesso)
                 if (response.code() != TaskConstants.HTTP.SUCCESS) {
                     //Pegando erro em Json e tratando
