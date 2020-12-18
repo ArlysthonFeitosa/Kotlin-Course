@@ -13,13 +13,18 @@ import retrofit2.Callback
 import retrofit2.Response
 
 //Repositório de operações na PersonService
-class PersonRepository(val context: Context) {
+class PersonRepository(val context: Context) : BaseRepository(context) {
 
     //Retrofit - PersonService
     private val mRemote = RetrofitClient.createService(PersonService::class.java)
 
     //Login a partir da API
     fun login(email: String, password: String, listener: APIListener<HeaderModel>) {
+
+        if(isConnectionAvailable(context)){
+            listener.onFaliure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
+            return
+        }
 
         //Preparando chamada de login vindo da API
         val call: Call<HeaderModel> = mRemote.login(email, password)
@@ -52,6 +57,11 @@ class PersonRepository(val context: Context) {
     }
 
     fun create(name: String, email: String, password: String, listener: APIListener<HeaderModel>) {
+
+        if(isConnectionAvailable(context)){
+            listener.onFaliure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
+            return
+        }
 
         //Preparando chamada de criação de usuário vindo da API
         val call: Call<HeaderModel> = mRemote.create(name, email, password, false)

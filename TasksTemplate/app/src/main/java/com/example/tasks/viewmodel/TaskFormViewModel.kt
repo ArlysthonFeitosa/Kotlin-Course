@@ -31,7 +31,6 @@ class TaskFormViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun save(task: TaskModel) {
-
         if(task.id == 0){
             mTaskRepository.create(task, object : APIListener<Boolean> {
                 override fun onSuccess(model: Boolean) {
@@ -53,7 +52,6 @@ class TaskFormViewModel(application: Application) : AndroidViewModel(application
                 }
             })
         }
-
     }
 
     fun load(id: Int) {
