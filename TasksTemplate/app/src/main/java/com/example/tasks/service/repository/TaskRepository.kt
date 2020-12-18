@@ -59,6 +59,31 @@ class TaskRepository(val context: Context) {
         list(call, listener)
     }
 
+    fun delete(id: Int, listener: APIListener<Boolean>) {
+        val call = mRemote.delete(id)
+
+        call.enqueue(object : Callback<Boolean>{
+            override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                listener.onFaliure(context.getString(R.string.ERROR_UNEXPECTED))
+            }
+
+            override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+                //Se a resposta for diferente de 200 (200 - sucesso)
+                if (response.code() != TaskConstants.HTTP.SUCCESS) {
+                    //Pegando erro em Json e tratando
+                    val validation = Gson().fromJson(
+                        response.errorBody()!!.string(),
+                        String::class.java
+                    )
+                    listener.onFaliure(validation)
+                } else {
+                    //it - Modelo retornado da API
+                    response.body()?.let { listener.onSuccess(it) }
+                }
+            }
+        })
+    }
+
     fun updateStatus(id: Int, complete: Boolean, listener: APIListener<Boolean>) {
 
         val call = if (complete) {
@@ -86,8 +111,7 @@ class TaskRepository(val context: Context) {
                     response.body()?.let { listener.onSuccess(it) }
                 }
             }
-        }
-
+        })
     }
 
     fun create(task: TaskModel, listener: APIListener<Boolean>) {
