@@ -46,9 +46,11 @@ class AllTasksFragment : Fragment() {
             }
 
             override fun onCompleteClick(id: Int) {
+                mViewModel.complete(id)
             }
 
             override fun onUndoClick(id: Int) {
+                mViewModel.undo(id)
             }
         }
 
