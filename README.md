@@ -47,7 +47,7 @@
       * Buttons
       * Funções de click
 
-[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Curso%20Kotlin/AppGastosDaViagem.png)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Curso%20Kotlin/Imagens%20Readme/AppGastosDaViagem.png)
 
 ### [Elementos - 2](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Curso%20Kotlin/Elementos)
    * Alguns elementos e a interação entre eles
@@ -77,16 +77,16 @@
       * Ripple
       * Mock
       
-[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Curso%20Kotlin/MotivationSplash.jpeg)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/masterCurso%20Kotlin//Imagens%20Readme/MotivationSplash.jpeg)
 
-[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Curso%20Kotlin/MotivationMain.jpeg)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Curso%20Kotlin/Imagens%20Readme/MotivationMain.jpeg)
 
 ### [ConstraintLayout](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Curso%20Kotlin/ConstraintLayout)
    * Apresentando Constraint Layout e alguns exercícios
       * Tela de Login usando Constraint Layout
       * Tela sobre Cappuccino usando Constraint Layout
       
-[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Curso%20Kotlin/Coffe.jpg)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Curso%20Kotlin/Imagens%20Readme/Coffe.jpg)
 
 ### [Aplicativo Convidados](https://github.com/ArlysthonFeitosa/Kotlin-Course/tree/master/Curso%20Kotlin/Convidados)
    * Aplicativo que gerencia convidados para algum encontro
@@ -100,4 +100,4 @@
       * Entidades
       * DAO
  
-[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Curso%20Kotlin/Convidados1.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Curso%20Kotlin/Convidados2.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Imagens%20Readme/Curso%20Kotlin/Convidados3.PNG)
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Curso%20Kotlin/Imagens%20Readme/Convidados1.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Curso%20Kotlin/Imagens%20Readme/Convidados2.PNG) | ![](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Curso%20Kotlin/Imagens%20Readme/Convidados3.PNG)
