@@ -76,8 +76,8 @@
       * Constantes
       * Ripple
       * Mock
-      
-[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/masterCurso%20Kotlin//Imagens%20Readme/MotivationSplash.jpeg)
+     
+[](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Curso%20Kotlin/Imagens%20Readme/MotivationSplash.jpeg)
 
 [](https://github.com/ArlysthonFeitosa/Kotlin-Course/blob/master/Curso%20Kotlin/Imagens%20Readme/MotivationMain.jpeg)
 
